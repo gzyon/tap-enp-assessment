@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon index.js",
+    "test": "mocha 'tests/**/*.js' --timeout 10000"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0"
+  },
+  "dependencies": {
+    "express":"*",
+    "body-parser":"*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19",
+    "pg": "^8.7.3"
+  }
+}
