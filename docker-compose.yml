@@ -1,0 +1,34 @@
+version: '3'
+services:
+  # Create frontend container
+  frontend: 
+    build: ./frontend 
+    ports: 
+      - "3000:3000"
+    container_name: frontend-docker
+    restart: always 
+    links:
+      - backend
+
+  # Create backend container
+  backend:
+    build: ./server
+    ports:
+      - "8080:8080"
+    container_name: backend-docker
+    restart: always
+    links:
+      - db
+
+  # Create database container
+  db:
+    image: postgres:11.6-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - "./init.sql:/docker-entrypoint-initdb.d/init.sql"
+    container_name: database-docker
+    restart: always
