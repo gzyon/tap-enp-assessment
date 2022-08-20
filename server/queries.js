@@ -27,7 +27,6 @@ const createUrl = (body) => {
 const getLongUrl = (shortUrl) => {
     return new Promise(function(resolve, reject) {
         var sql = "SELECT * FROM urls WHERE shorturl = '" + shortUrl + "'";
-        console.log(sql);
         pool.query(sql, (error, results) => {
             if (error) {
                 reject(error)

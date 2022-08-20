@@ -33,7 +33,7 @@ function App() {
       <Stack spacing={3}>
         <LinkInput width={width} setShortUrl={setShortUrl} setURL={setURL} url={url}/>
         {shortUrl !== '' ? (
-          <center><ShortenedUrl props={{ shortUrl: {shortUrl}, url: {url}, copied: {copied}, setCopied: {setCopied} }} ref={copyRef} /></center>
+          <center><ShortenedUrl shortUrl={shortUrl} url={url} copied={copied} setCopied={setCopied} /></center>
         ) : (
           <></>
         )}
