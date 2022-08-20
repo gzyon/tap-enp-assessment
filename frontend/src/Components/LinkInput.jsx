@@ -15,14 +15,14 @@ const LinkInput = (props) => {
         console.log(props.url);
         try {
             setLoading(true);
-            const response = await axios.get('//localhost:3000/api/shorten', {
+            const response = await axios.get('//localhost:8080/api/shorten', {
                 params: {
                     longURL: props.url
                 }
             });
             const newUrl = response.data.shortUrl, dbStored = response.data;
             const url = newUrl != undefined ? newUrl : dbStored;
-            shortUrl = "http://localhost:5173/" + url;
+            shortUrl = "http://localhost:3000/" + url;
             props.setShortUrl(shortUrl);
         }
         catch(err) {

@@ -32,7 +32,6 @@ const getLongUrl = (shortUrl) => {
             if (error) {
                 reject(error)
             }
-            console.log(results);
             if (results.rows.length === 0) resolve(null);
             else resolve(results.rows[0].longurl);
         })

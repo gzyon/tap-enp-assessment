@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const RedirectPath = (props) => {
     let params = useParams();
 
-    const queryUrl = `http://localhost:3000/${params.shorturl}`
+    const queryUrl = `http://localhost:8080/${params.shorturl}`
     useEffect(() => {
         window.location.replace(queryUrl);
       }, [])

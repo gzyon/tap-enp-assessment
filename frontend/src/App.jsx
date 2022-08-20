@@ -1,5 +1,6 @@
 import { Stack, Typography } from '@mui/material';
 import { useEffect } from 'react';
+import { createRef } from 'react';
 import { useState } from 'react'
 import './App.css'
 import LinkInput from './Components/LinkInput';
@@ -10,6 +11,7 @@ function App() {
   const [shortUrl, setShortUrl] = useState("");
   const [url, setURL] = useState("");
   const [width, setWindowWidth] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => { 
 
@@ -31,7 +33,7 @@ function App() {
       <Stack spacing={3}>
         <LinkInput width={width} setShortUrl={setShortUrl} setURL={setURL} url={url}/>
         {shortUrl !== '' ? (
-          <center><ShortenedUrl data-testid="shorterned-url" shortUrl={shortUrl} url={url} /></center>
+          <center><ShortenedUrl props={{ shortUrl: {shortUrl}, url: {url}, copied: {copied}, setCopied: {setCopied} }} ref={copyRef} /></center>
         ) : (
           <></>
         )}

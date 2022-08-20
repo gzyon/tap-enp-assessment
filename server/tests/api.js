@@ -22,7 +22,7 @@ describe('Testing express app routes', () => {
 
      describe('Redirecting Shortened URL', () => { 
         it('redirects shortened url successfully',  (done) => {
-            chai.request(server).get('/s4ssaf')
+            chai.request(server).get('/abc123')
             .end((err, res) => {
                 expect(res).to.have.status(302);
                 done();
