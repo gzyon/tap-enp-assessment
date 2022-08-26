@@ -52,6 +52,15 @@ app.get('/:shortUrl', (req, res) => {
   });
 })
 
+app.get('/delete/:shortUrl', (req, res) => {
+  console.log(req.params.shortUrl);
+  db.deleteEntry(req.params.shortUrl).then(response => {
+    res.status(200).send(response);
+  }).catch(error => {
+    res.status(500).send(error);
+  })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at port ${port}`);
 })

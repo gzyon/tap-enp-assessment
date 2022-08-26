@@ -50,8 +50,22 @@ const getShortUrl = (longUrl) => {
     })
 }
 
+const deleteEntry = (shortUrl) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("DELETE FROM urls WHERE shorturl = $1", [shortUrl], 
+        (error, results) => {
+            if (error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results);
+        })
+    })
+}
+
 module.exports = {
     createUrl,
     getLongUrl,
     getShortUrl,
+    deleteEntry,
 }
